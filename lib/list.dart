@@ -59,6 +59,7 @@ class _ListState extends State<ListPage> {
                         ),
                       );
                     },
+                    
                     child: Row(
                       children: <Widget>[
                         Padding(
@@ -67,11 +68,18 @@ class _ListState extends State<ListPage> {
                         ),
                         Padding(
                           padding: const EdgeInsets.all(16.0),
-                          child: Text(snapshot.data[index].idade),
+                          child: Text(snapshot.data[index].idade + 'anos'),
                         ),
+                        Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Text(snapshot.data[index].email +'@gmail.com'),
+                        ),
+                        
                       ],
+                      
                        
                     ),
+
                   ),
                 );
               },
@@ -80,9 +88,13 @@ class _ListState extends State<ListPage> {
             return Center(
               child: Text("Não existe nenhuma pessoa cadastrada no momento." + "Para Cadastrar clique no botão abaixo!")
             );
-          }
+          };
+          
         },
       ),
+  
+    
+
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: () {

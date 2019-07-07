@@ -16,6 +16,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     final _controller = TextEditingController(text: widget.person?.name);
     final _controller2 = TextEditingController(text: widget.person?.idade);
+    final _controller3 = TextEditingController(text: widget.person?.email);
 
     return Scaffold(
       appBar: AppBar(
@@ -47,15 +48,28 @@ class _DetailPageState extends State<DetailPage> {
             ),
             
           ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+             decoration: InputDecoration(
+               labelText: "Email",
+              
+             ),
+             controller: _controller3,
+            ),
+            
+          ),
 
         RaisedButton(
             onPressed: () {
               if(widget.person == null){
-                widget.person = Person(name: _controller.text, idade: _controller2.text);
-              }
+                widget.person = Person(name: _controller.text, idade: _controller2.text, email: _controller3.text);
+                }
+               
              else{
                 widget.person.name = _controller.text;
                 widget.person.idade = _controller2.text;
+                widget.person.email = _controller3.text;
               }
               PersonDAO().insert(person: widget.person);
               

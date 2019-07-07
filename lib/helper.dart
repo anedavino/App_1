@@ -31,6 +31,6 @@ class DBHelper {
   }
 
   _createDatabase(Database db, int newVersion) async {
-    await db.execute('CREATE TABLE person(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, idade TEXT)');
+    await db.execute('CREATE TABLE person(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, idade TEXT, email TEXT)');
   }
 }
